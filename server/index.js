@@ -27,8 +27,10 @@ io.on("connection", (socket) => {
     console.log(`User with ID:${socket.id} joined room: ${data}`);
   });
 
+  // we emit from the backend
   socket.on("send_message", (data) => {
-    console.log(data);
+    // we only emit to the people in the room with socket.to
+    socket.to(data.room).emit("receive_message", data);
   });
 
   socket.on("disconnect", () => {
