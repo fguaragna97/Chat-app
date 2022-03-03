@@ -5,7 +5,9 @@ import { useState } from "react";
 import Chat from "./Chat";
 
 // connect the socket to where the backend is runnning
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect(
+  "https://fguaragna97-chat-app-backend.herokuapp.com/"
+);
 
 function App() {
   // we create the state for the username and the room they want to join
